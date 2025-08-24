@@ -50,7 +50,7 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
-              <h1 className="text-xl font-semibold text-neutral-900">PromptAI</h1>
+              <h1 className="text-xl font-semibold text-neutral-900">Promptify-AI</h1>
             </div>
             <div className="flex items-center space-x-2 text-sm text-neutral-600">
               <div className="w-2 h-2 bg-green-500 rounded-full"></div>
