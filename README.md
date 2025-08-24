@@ -22,7 +22,7 @@ A simple prompt generator built with Next.js and Google's Gemini AI API. Generat
 
 1. Clone the repository:
 ```bash
-git clone <your-repo-url>
+git clone <your-repo-url>](https://github.com/shubhammukherjee17/Promptify.git
 cd prompt-generator
 ```
 
@@ -34,7 +34,7 @@ npm install
 3. Create a `.env.local` file in the root directory and add your Gemini API key:
 ```bash
 # Gemini API Key
-# Get your API key from: https://makersuite.google.com/app/apikey
+# Get your API key from: https://aistudio.google.com/
 GEMINI_API_KEY=your_gemini_api_key_here
 ```
 
@@ -85,7 +85,7 @@ This prompt generator utilizes 30+ advanced prompting techniques including:
 
 To get your Gemini API key:
 
-1. Go to [Google AI Studio](https://makersuite.google.com/app/apikey)
+1. Go to [Google AI Studio](https://aistudio.google.com/app/apikey)
 2. Sign in with your Google account
 3. Create a new API key
 4. Copy the key and paste it in your `.env.local` file
