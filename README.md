@@ -22,7 +22,7 @@ A simple prompt generator built with Next.js and Google's Gemini AI API. Generat
 
 1. Clone the repository:
 ```bash
-git clone <your-repo-url>](https://github.com/shubhammukherjee17/Promptify.git
+https://github.com/shubhammukherjee17/Promptify.git
 cd prompt-generator
 ```
 
