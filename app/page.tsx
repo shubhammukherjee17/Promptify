@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
 import { Zap, Hexagon, Maximize2, LayoutTemplate, Layers, Gauge, Target, Share2, Globe } from "lucide-react";
 
 export default function Home() {
@@ -20,7 +21,7 @@ export default function Home() {
       <nav className="flex items-center justify-between px-8 py-6 max-w-7xl mx-auto border-b border-white/5">
         <div className="text-xl font-bold tracking-tight">Promptify <span className="text-white/70">AI</span></div>
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-white/60">
-          <button onClick={() => scrollToSection('features')} className="text-white hover:text-white transition-colors border-b-2 border-red-500 pb-1 cursor-pointer">Features</button>
+          <button onClick={() => scrollToSection('features')} className="hover:text-white transition-colors pb-1 cursor-pointer">Features</button>
           <button onClick={() => scrollToSection('process')} className="hover:text-white transition-colors pb-1 cursor-pointer">Solutions</button>
           <button onClick={() => scrollToSection('testimonials')} className="hover:text-white transition-colors pb-1 cursor-pointer">Pricing</button>
           <button onClick={() => scrollToSection('features')} className="hover:text-white transition-colors pb-1 cursor-pointer">Docs</button>
@@ -280,10 +281,10 @@ export default function Home() {
           </div>
           
           <div className="flex items-center gap-8 text-xs font-bold tracking-widest text-white/40 uppercase">
-            <button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="hover:text-white transition-colors cursor-pointer">Privacy</button>
-            <button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="hover:text-white transition-colors cursor-pointer">Terms</button>
-            <button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="hover:text-white transition-colors cursor-pointer">Security</button>
-            <button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="hover:text-white transition-colors cursor-pointer">Status</button>
+            <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
+            <Link href="/terms" className="hover:text-white transition-colors">Terms</Link>
+            <Link href="/security" className="hover:text-white transition-colors">Security</Link>
+            <Link href="/status" className="hover:text-white transition-colors">Status</Link>
           </div>
           
           <div className="flex items-center gap-4 text-white/40">
