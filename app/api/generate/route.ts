@@ -1,8 +1,4 @@
-import { GoogleGenerativeAI } from '@google/generative-ai';
 import { NextRequest, NextResponse } from 'next/server';
-
-// Initialize the Gemini API
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || '');
 
 export async function POST(request: NextRequest) {
   try {
@@ -15,15 +11,12 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    if (!process.env.GEMINI_API_KEY) {
+    if (!process.env.NVIDIA_API_KEY) {
       return NextResponse.json(
-        { error: 'Gemini API key is not configured' },
+        { error: 'NVIDIA API key is not configured' },
         { status: 500 }
       );
     }
-
-    // Get the generative model
-    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
 
     // Create a comprehensive system prompt for prompt generation
     const systemPrompt = `You are an expert Prompt Engineer and AI Prompt Generator. Your primary mission is to create highly effective, optimized prompts using advanced prompting techniques.
@@ -96,10 +89,36 @@ Important: Make sure to clearly highlight the accuracy percentages for each prom
 
 Write this as natural, conversational text - not as code or structured data. Make it easy to read and understand. Do not use any asterisks (*) or markdown formatting in your response.`;
 
-    // Generate content with the system prompt
-    const result = await model.generateContent(systemPrompt);
-    const response = await result.response;
-    const text = response.text();
+    // Call NVIDIA API
+    const invoke_url = "https://integrate.api.nvidia.com/v1/chat/completions";
+    
+    const payload = {
+      model: "google/gemma-4-31b-it",
+      messages: [{ role: "user", content: systemPrompt }],
+      max_tokens: 16384,
+      temperature: 1.00,
+      top_p: 0.95,
+      stream: false,
+      chat_template_kwargs: { enable_thinking: true }
+    };
+
+    const apiResponse = await fetch(invoke_url, {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${process.env.NVIDIA_API_KEY}`,
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(payload)
+    });
+
+    if (!apiResponse.ok) {
+      const errorData = await apiResponse.json().catch(() => ({}));
+      throw new Error(errorData.error?.message || 'Failed to fetch from NVIDIA API');
+    }
+
+    const data = await apiResponse.json();
+    const text = data.choices[0].message.content;
 
     // Return the natural text response
     return NextResponse.json({ response: text });
@@ -111,7 +130,7 @@ Write this as natural, conversational text - not as code or structured data. Mak
     
     if (errorMessage.includes('API key')) {
       return NextResponse.json(
-        { error: 'Invalid API key. Please check your Gemini API key.' },
+        { error: 'Invalid API key. Please check your NVIDIA API key.' },
         { status: 401 }
       );
     } else if (errorMessage.includes('not found') || errorMessage.includes('404')) {
