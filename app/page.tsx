@@ -197,9 +197,9 @@ export default function Home() {
         <section id="testimonials" className="grid grid-cols-1 md:grid-cols-2 gap-6 py-12 scroll-mt-24">
           <div className="bg-[#0a0a0a] border border-white/5 rounded-xl p-10 flex flex-col justify-between">
             <div>
-              <div className="text-red-500 text-6xl font-serif leading-none h-10 mb-4">"</div>
+              <div className="text-red-500 text-6xl font-serif leading-none h-10 mb-4">&quot;</div>
               <p className="text-lg font-medium leading-relaxed mb-10">
-                "This tool completely changed how I use AI. My outputs are sharper and more consistent. It's like having a senior prompt engineer on demand."
+                &quot;This tool completely changed how I use AI. My outputs are sharper and more consistent. It&apos;s like having a senior prompt engineer on demand.&quot;
               </p>
             </div>
             <div className="flex items-center gap-4">
@@ -213,9 +213,9 @@ export default function Home() {
           
           <div className="bg-[#0a0a0a] border border-white/5 rounded-xl p-10 flex flex-col justify-between">
             <div>
-              <div className="text-red-500 text-6xl font-serif leading-none h-10 mb-4">"</div>
+              <div className="text-red-500 text-6xl font-serif leading-none h-10 mb-4">&quot;</div>
               <p className="text-lg font-medium leading-relaxed mb-10">
-                "The multi-model compatibility is a lifesaver. One prompt that works perfectly across Claude and GPT-4 every single time. Incredible ROI."
+                &quot;The multi-model compatibility is a lifesaver. One prompt that works perfectly across Claude and GPT-4 every single time. Incredible ROI.&quot;
               </p>
             </div>
             <div className="flex items-center gap-4">
@@ -233,7 +233,7 @@ export default function Home() {
           <div className="flex-1 p-12 md:p-16 z-10">
             <h2 className="text-3xl font-bold mb-4">Built for global creators</h2>
             <p className="text-white/50 text-sm leading-relaxed mb-8 max-w-md">
-              Whether you're in San Francisco, London, or Tokyo, Promptify is powering the next generation of AI-native workflows worldwide.
+              Whether you&apos;re in San Francisco, London, or Tokyo, Promptify is powering the next generation of AI-native workflows worldwide.
             </p>
             <button 
               onClick={() => router.push('/prompts')}
@@ -265,7 +265,7 @@ export default function Home() {
               onClick={() => router.push('/prompts')}
               className="bg-red-500 hover:bg-red-600 cursor-pointer text-white px-8 py-4 rounded-lg font-bold text-lg transition-colors shadow-[0_0_30px_rgba(239,68,68,0.3)]"
             >
-              Try Promptify Now — It's Free
+              Try Promptify Now — It&apos;s Free
             </button>
           </div>
         </section>
